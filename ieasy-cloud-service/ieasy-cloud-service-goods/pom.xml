@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>com.baayso</groupId>
-            <artifactId>ieasy-cloud-common-core</artifactId>
+            <artifactId>ieasy-cloud-common-datasource</artifactId>
             <version>${project.version}</version>
         </dependency>
 
