@@ -1,0 +1,63 @@
+server:
+  compression:
+    enabled: true
+    mime-types: text/html,application/xml,application/json,application/javascript,text/css,text/plain
+    min-response-size: 1024
+  ssl:
+    enabled: false
+    key-store: classpath:config/sample.jks
+    key-store-password: secret
+    key-password: password
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  http2:
+    enabled: true
+  error:
+    path: /error
+  undertow:
+    accesslog:
+      enabled: true
+      dir: ./logs/undertow
+
+logging:
+  config: classpath:config/log4j2.xml
+  level:
+    com.baayso: INFO
+
+management:
+  server:
+    servlet:
+      context-path: /management
+  endpoints:
+    web:
+      base-path: /
+
+spring:
+  application:
+    admin:
+      enabled: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    # joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: NON_NULL
+    time-zone: Asia/Shanghai
+    serialization:
+      WRITE_ENUMS_USING_TO_STRING: true
+      FAIL_ON_EMPTY_BEANS: false
+    deserialization:
+      READ_ENUMS_USING_TO_STRING: true
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+    view:
+      prefix: /templates/
+      suffix: .html

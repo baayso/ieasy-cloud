@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.baayso</groupId>
+        <artifactId>ieasy-cloud-service</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ieasy-cloud-service-file</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>ieasy-cloud文件上传微服务工程</description>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.baayso</groupId>
+            <artifactId>ieasy-cloud-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>net.oschina.zcx7878</groupId>-->
+        <!--<artifactId>fastdfs-client-java</artifactId>-->
+        <!--<version>1.27.0.0</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>in.clouthink.repack</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+            <version>1.29.4</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

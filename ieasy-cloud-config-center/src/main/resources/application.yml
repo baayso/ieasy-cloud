@@ -1,0 +1,39 @@
+info:
+  name: @project.artifactId@
+  version: @project.version@
+  description: @project.description@
+
+server:
+  port: 8002
+  compression:
+    enabled: true
+    mime-types: text/html,application/xml,application/json,application/javascript,text/css,text/plain
+    min-response-size: 1024
+  ssl:
+    enabled: false
+    key-store: classpath:config/sample.jks
+    key-store-password: secret
+    key-password: password
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  http2:
+    enabled: true
+
+spring:
+  application:
+    name: ${info.name}
+  profiles:
+    active: native # 使用本地配置(默认：git，可设置：git，subversion(SVN)，native(本地))
+  jmx:
+    enabled: false
+  cloud:
+    config:
+      name: config-center
+      enabled: false
+      server:
+        native:
+          search-locations: classpath:/config # 配置文件存放的目录

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>ieasy-cloud-service-goods</module>
+        <module>ieasy-cloud-service-file</module>
+    </modules>
+
+    <parent>
+        <groupId>com.baayso</groupId>
+        <artifactId>ieasy-cloud</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ieasy-cloud-service</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>ieasy-cloud微服务父工程</description>
+
+    <packaging>pom</packaging>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.baayso</groupId>
+            <artifactId>ieasy-cloud-common-datasource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

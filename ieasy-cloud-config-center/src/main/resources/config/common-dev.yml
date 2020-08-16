@@ -1,0 +1,18 @@
+server:
+  ssl:
+    enabled: false
+    key-store: classpath:config/sample.jks
+    key-store-password: secret
+    key-password: password
+  undertow:
+    accesslog:
+      enabled: false
+
+logging:
+  level:
+    com.baayso: DEBUG
+
+spring:
+  application:
+    admin:
+      enabled: true

@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    druid:
+      initial-size: 10
+      min-idle: 10
+      max-active: 100

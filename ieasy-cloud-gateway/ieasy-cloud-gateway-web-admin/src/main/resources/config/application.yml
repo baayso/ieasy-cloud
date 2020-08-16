@@ -1,0 +1,57 @@
+info:
+  name: @project.artifactId@
+  version: @project.version@
+  description: @project.description@
+
+server:
+  port: 8001
+
+spring:
+  application:
+    name: ${info.name}
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" # 跨域处理，允许所有域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        # 唯一标识符
+        - id: ieasy_cloud_goods_route
+          # 用户请求需要路由到的服务
+          # uri: http://localhost:18081
+          # 使用LoadBalancerClient实现负责均衡，lb://微服务名称（主要应用于集群环境）
+          uri: lb://ieasy-cloud-service-goods
+          # 路由断言，路由规则配置
+          predicates:
+            # 用户请求的域名规则配置，所有以cloud.baayso.com的请求都将被路由到http://localhost:18081
+            - Host=cloud.baayso.com**
+            # 所有以/brand开始的请求都路由到http://localhost:18081
+            - Path=/goods/**
+          filters:
+            # 用户请求路径添加/api前缀
+            - PrefixPath=/api
+            # 去掉请求路径中的第1个路径，请求路径以/分隔
+            # - StripPrefix=1
+            # 请求数限流，局部限流过滤器
+            - name: RequestRateLimiter
+              args:
+                # 用户身份唯一识别标识符
+                key-resolver: "#{@ipKeyResolver}"
+                # 每秒钟允许的请求数
+                redis-rate-limiter.replenishRate: 1
+                # 允许并发的请求数[宽限个数]
+                redis-rate-limiter.burstCapacity: 3
+
+management:
+  endpoint:
+    gateway:
+      enable: true
+    web:
+      exposure:
+        include: true

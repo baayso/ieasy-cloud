@@ -1,0 +1,19 @@
+info:
+  name: @project.artifactId@
+  version: @project.version@
+  description: @project.description@
+
+server:
+  port: 18082
+
+spring:
+  application:
+    name: ${info.name}
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jmx:
+    default-domain: ${spring.application.name}
