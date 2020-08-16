@@ -1,4 +1,4 @@
-package com.baayso.springboot.common.domain;
+package com.baayso.springcloud.common.datasource.domain;
 
 import java.io.Serializable;
 import java.util.List;
