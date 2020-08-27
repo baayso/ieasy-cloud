@@ -8,6 +8,7 @@
 
     <modules>
         <module>ieasy-cloud-service-goods-api</module>
+        <module>ieasy-cloud-service-demo-api</module>
     </modules>
 
     <parent>

@@ -1,0 +1,11 @@
+info:
+  name: @project.artifactId@
+  version: @project.version@
+  description: @project.description@
+
+server:
+  port: 18091
+
+spring:
+  application:
+    name: ${info.name}

@@ -22,17 +22,17 @@ spring:
               - DELETE
       routes:
         # 唯一标识符
-        - id: ieasy_cloud_goods_route
+        - id: ieasy_cloud_demo_route
           # 用户请求需要路由到的服务
-          # uri: http://localhost:18081
+          # uri: http://localhost:18091
           # 使用LoadBalancerClient实现负责均衡，lb://微服务名称（主要应用于集群环境）
-          uri: lb://ieasy-cloud-service-goods
+          uri: lb://ieasy-cloud-service-demo
           # 路由断言，路由规则配置
           predicates:
-            # 用户请求的域名规则配置，所有以cloud.baayso.com的请求都将被路由到http://localhost:18081
+            # 用户请求的域名规则配置，所有以cloud.baayso.com的请求都将被路由到lb://ieasy-cloud-service-demo
             - Host=cloud.baayso.com**
-            # 所有以/brand开始的请求都路由到http://localhost:18081
-            - Path=/goods/**
+            # 所有以/demo开始的请求都路由到lb://ieasy-cloud-service-demo
+            - Path=/demo/**
           filters:
             # 用户请求路径添加/api前缀
             - PrefixPath=/api

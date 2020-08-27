@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: common,registry
+      name: common,registry,redis
       profile: dev # 配置环境
       # label: master # 配置分支(默认：git是master，svn是trunk)
       uri: http://127.0.0.1:8002
